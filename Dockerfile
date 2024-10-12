@@ -13,9 +13,8 @@ RUN apt-get update && apt-get install -y \
 # Create and set the working directory
 WORKDIR /app
 
-# Copy requirements.txt and install dependencies (Django and others)
-COPY requirements.txt ./
-RUN pip install --no-cache-dir --default-timeout=100 -r requirements.txt
+# Install Django directly without requirements.txt
+RUN pip install --no-cache-dir django==3.2
 
 # Copy project files into the container
 COPY . .
